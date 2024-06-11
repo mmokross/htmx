@@ -128,12 +128,13 @@ Note that using a [meta tag](@/docs.md#config) is the preferred mechanism for se
 * `disableSelector:"[hx-disable], [data-hx-disable]"` - array of strings: htmx will not process elements with this attribute on it or a parent
 * `scrollBehavior:'smooth'` - string: the behavior for a boosted link on page transitions. The allowed values are `auto` and `smooth`. Smooth will smoothscroll to the top of the page while auto will behave like a vanilla link.
 * `defaultFocusScroll:false` - boolean: if the focused element should be scrolled into view, can be overridden using the [focus-scroll](@/attributes/hx-swap.md#focus-scroll) swap modifier
-* `getCacheBusterParam:false` - boolean: if set to true htmx will include a cache-busting parameter in `GET` requests to avoid caching partial responses by the browser
+* `getCacheBusterParam:false` - boolean: if set to true htmx will append the target element to the `GET` request in the format `org.htmx.cache-buster=targetElementId`
 * `globalViewTransitions:false` - boolean: if set to `true`, htmx will use the [View Transition](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) API when swapping in new content.
 * `methodsThatUseUrlParams:["get"]` - array of strings: htmx will format requests with these methods by encoding their parameters in the URL, not the request body
 * `selfRequestsOnly:false` - boolean: if set to `true` will only allow AJAX requests to the same domain as the current document
 * `ignoreTitle:false` - boolean: if set to `true` htmx will not update the title of the document when a `title` tag is found in new content
 * `scrollIntoViewOnBoost:true` - boolean: whether or not the target of a boosted element is scrolled into the viewport. If `hx-target` is omitted on a boosted element, the target defaults to `body`, causing the page to scroll to the top.
+* `triggerSpecsCache:null` - object: the cache to store evaluated trigger specifications into, improving parsing performance at the cost of more memory usage. You may define a simple object to use a never-clearing cache, or implement your own system using a [proxy object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy) |
 
 ##### Example
 

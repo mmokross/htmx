@@ -16,35 +16,35 @@ title = "Reference"
 
 ## Core Attribute Reference {#attributes}
 
-The following are the most common attributes when using htmx.
+The most common attributes when using htmx.
 
 <div class="info-table">
 
 | Attribute                                        | Description                                                                                                        |
 |--------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| [`hx-boost`](@/attributes/hx-boost.md)           | add or remove [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement) for links and forms |
 | [`hx-get`](@/attributes/hx-get.md)               | issues a `GET` to the specified URL                                                                                |
 | [`hx-post`](@/attributes/hx-post.md)             | issues a `POST` to the specified URL                                                                               |
-| [`hx-on`](@/attributes/hx-on.md)                 | handle any event with a script inline                                                                              |
-| [`hx-push-url`](@/attributes/hx-push-url.md)     | pushes the URL into the browser location bar, creating a new history entry                                         |
+| [`hx-on*`](@/attributes/hx-on.md)                | handle events with inline scripts on elements                                                                      |
+| [`hx-push-url`](@/attributes/hx-push-url.md)     | push a URL into the browser location bar to create history                                                         |
 | [`hx-select`](@/attributes/hx-select.md)         | select content to swap in from a response                                                                          |
-| [`hx-select-oob`](@/attributes/hx-select-oob.md) | select content to swap in from a response, out of band (somewhere other than the target)                           |
-| [`hx-swap`](@/attributes/hx-swap.md)             | controls how content is swapped in (`outerHTML`, `beforeend`, `afterend`, ...)                                     |
-| [`hx-swap-oob`](@/attributes/hx-swap-oob.md)     | marks content in a response to be out of band (should swap in somewhere other than the target)                     |
+| [`hx-select-oob`](@/attributes/hx-select-oob.md) | select content to swap in from a response, somewhere other than the target (out of band)                           |
+| [`hx-swap`](@/attributes/hx-swap.md)             | controls how content will swap in (`outerHTML`, `beforeend`, `afterend`, ...)                                      |
+| [`hx-swap-oob`](@/attributes/hx-swap-oob.md)     | mark element to swap in from a response (out of band)                                                              |
 | [`hx-target`](@/attributes/hx-target.md)         | specifies the target element to be swapped                                                                         |
 | [`hx-trigger`](@/attributes/hx-trigger.md)       | specifies the event that triggers the request                                                                      |
-| [`hx-vals`](@/attributes/hx-vals.md)             | adds values to the parameters to submit with the request (JSON-formatted)                                          |
+| [`hx-vals`](@/attributes/hx-vals.md)             | add values to submit with the request (JSON format)                                                                |
 
 </div>
 
 ## Additional Attribute Reference {#attributes-additional}
 
-The table below lists all other attributes available in htmx.
+All other attributes available in htmx.
 
 <div class="info-table">
 
 | Attribute                                            | Description                                                                                                                        |
 |------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [`hx-boost`](@/attributes/hx-boost.md)               | add [progressive enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement) for links and forms                           |
 | [`hx-confirm`](@/attributes/hx-confirm.md)           | shows a `confirm()` dialog before issuing a request                                                                                |
 | [`hx-delete`](@/attributes/hx-delete.md)             | issues a `DELETE` to the specified URL                                                                                             |
 | [`hx-disable`](@/attributes/hx-disable.md)           | disables htmx processing for the given node and any children nodes                                                                 |
@@ -242,12 +242,13 @@ listed below:
 | `htmx.config.timeout`                 | defaults to 0, the number of milliseconds a request can take before automatically being terminated                                                                         |
 | `htmx.config.scrollBehavior`          | defaults to 'smooth', the behavior for a boosted link on page transitions. The allowed values are `auto` and `smooth`. Smooth will smoothscroll to the top of the page while auto will behave like a vanilla link.      |
 | `htmx.config.defaultFocusScroll`      | if the focused element should be scrolled into view, defaults to false and can be overridden using the [focus-scroll](@/attributes/hx-swap.md#focus-scroll) swap modifier. |
-| `htmx.config.getCacheBusterParam`     | defaults to false, if set to true htmx will include a cache-busting parameter in `GET` requests to avoid caching partial responses by the browser                          |
+| `htmx.config.getCacheBusterParam`     | defaults to false, if set to true htmx will append the target element to the `GET` request in the format `org.htmx.cache-buster=targetElementId`                           |
 | `htmx.config.globalViewTransitions`   | if set to `true`, htmx will use the [View Transition](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) API when swapping in new content.             |
 | `htmx.config.methodsThatUseUrlParams` | defaults to `["get"]`, htmx will format requests with these methods by encoding their parameters in the URL, not the request body                                          |
 | `htmx.config.selfRequestsOnly`        | defaults to `false`, if set to `true` will only allow AJAX requests to the same domain as the current document                                                             |
 | `htmx.config.ignoreTitle`             | defaults to `false`, if set to `true` htmx will not update the title of the document when a `title` tag is found in new content                                            |
 | `htmx.config.scrollIntoViewOnBoost`   | defaults to `true`, whether or not the target of a boosted element is scrolled into the viewport. If `hx-target` is omitted on a boosted element, the target defaults to `body`, causing the page to scroll to the top. |
+| `htmx.config.triggerSpecsCache`       | defaults to `null`, the cache to store evaluated trigger specifications into, improving parsing performance at the cost of more memory usage. You may define a simple object to use a never-clearing cache, or implement your own system using a [proxy object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Proxy) |
 
 </div>
 

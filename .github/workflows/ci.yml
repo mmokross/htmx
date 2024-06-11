@@ -2,17 +2,17 @@ name: Node CI
 
 on:
   push:
-    branches: [ master, dev, htmx-2.0 ]
+    branches: [ master, dev, htmx-2.0, v2.0v2.0 ]
   pull_request:
-    branches: [ master, dev, htmx-2.0 ]
+    branches: [ master, dev, htmx-2.0, v2.0v2.0 ]
 
 jobs:
   test_suite:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Use Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '15.x'
       - run: npm ci

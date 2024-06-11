@@ -50,7 +50,7 @@ against `htmx` in each distribution.
 
 ### Installing Extensions {#installing}
 
-You can find the source for the bundled extensions at `https://unpkg.com/browse/htmx.org/dist/ext/`.  You will need
+You can find the source for the bundled extensions at `https://unpkg.com/browse/htmx.org@1.9.12/dist/ext/`.  You will need
 to include the javascript file for the extension and then install it using the [hx-ext](@/attributes/hx-ext.md) attributes.
 
 See the individual extension documentation for more details.
@@ -82,6 +82,7 @@ See the individual extension documentation for more details.
 | [`restored`](@/extensions/restored.md)                           | allows you to trigger events when the back button has been pressed
 | [`server-sent-events`](@/extensions/server-sent-events.md)       | uni-directional server push messaging via [EventSource](https://developer.mozilla.org/en-US/docs/Web/API/EventSource)
 | [`web-sockets`](@/extensions/web-sockets.md)                     | bi-directional connection to WebSocket servers
+| [`path-params`](@/extensions/path-params.md)                     | allows to use parameters for path variables instead of sending them in query or body
 
 </div>
 
