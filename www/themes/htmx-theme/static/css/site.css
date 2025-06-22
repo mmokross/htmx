@@ -20,7 +20,7 @@
     --alertBackground: #161719;
     --alertBorder: #41464b;
     --alertShadow: rgba(0, 0, 0, 0.15);
-    --anchorColor: #e2dada;
+    --anchorColor: var(--midBlue);
     --bodyBackground: #1f1f1f;
     --footerBackground: #1a1d1e;
     --midBlue: #5b96d5;
@@ -270,7 +270,6 @@ ol li {
       float: right;
   }
   .nav {
-      text-align: center;
       font-size: 1.2em;
       line-height: 1.3em;
   }
@@ -336,13 +335,49 @@ a[href]:hover, .btn:hover {
 }
 
 .c.wide-content {
-  max-width: 50em;
+  width: 100%
+}
+
+@media (min-width: 640px){
+  .c.wide-content {
+    max-width: 640px
+  }
+}
+
+@media (min-width: 768px){
+  .c.wide-content {
+    max-width: 768px
+  }
+}
+
+@media (min-width: 1024px){
+  .c.wide-content {
+    max-width: 1024px
+  }
+}
+
+@media (min-width: 1280px){
+  .c.wide-content {
+    max-width: 1280px
+  }
+}
+
+@media (min-width: 1536px){
+  .c.wide-content {
+    max-width: 1536px
+  }
 }
 
 .btn.primary {
   color: white;
   background: var(--midBlue);
   border: solid var(--midBlue);
+}
+
+.btn.danger {
+  color: white;
+  background: #d9534f;
+  border: solid #d9534f;
 }
 
 td {
@@ -355,6 +390,12 @@ th {
   padding: 0.2em 0.2em 0.2em 0;
   text-align: left;
   border-bottom: 2px solid #eee;
+}
+
+tbody > tr > th[scope="rowgroup"] {
+  font-style: italic;
+  text-align: center;
+  border-bottom: 1px solid #eee;
 }
 
 .btn {
@@ -384,8 +425,9 @@ transition: visibility 0s 1s, opacity 1s linear;
   padding:1em 0;
 }
 
-.github-stars {
-  margin-top: 5px;
+.github-stars span {
+    position: relative;
+    top: 4px;
 }
 
 /* Content */
@@ -416,7 +458,12 @@ h1,h2,h3,h4{
 
 @media(min-width:45em) {
 
-  /* Menu */
+    /* Avoid nav jump */
+  .github-stars {
+    width: 98px;
+  }
+
+    /* Menu */
   .menu,
   .navigation > div{
       display:flex;
@@ -473,6 +520,14 @@ display: block;
 background: none;
 }
 
+figure {
+    margin: 12px;
+}
+
+figcaption {
+    text-align: center;
+    font-style: italic;
+}
 
 .search-box {
     transition: all .2s ease-in-out;
@@ -526,11 +581,9 @@ pre[class|="language"] {
   color: lightgray;
 }
 .zola-anchor {
-  margin-left: -1.3rem;
-  margin-right: .3rem;
-  opacity: 40%;
-  color: var(--anchorColor);
+  color: var(--textColor);
 }
-.zola-anchor:hover {
-    opacity: 95%;
+
+.zola-anchor:hover::after {
+  content: ' #';
 }

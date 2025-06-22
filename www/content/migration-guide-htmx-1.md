@@ -8,11 +8,11 @@ We place a very high value on backwards compatibility, so in most cases this mig
 * If you are using htmx in a module setting, we now provide module-type specific files for all three of the major
   JavaScript module types
   * ESM Modules: `/dist/htmx.esm.js`
-  * UMD Modules: `/dist/htmx.umd.js`
   * AMD Modules: `/dist/htmx.amd.js`
+  * CJS Modules: `/dist/htmx.cjs.js`
   * The `/dist/htmx.js` file continues to be browser-loadable
-* All extensions have been removed from the core htmx distribution and are distributed separately on
-  [their own website](https://extensions.htmx.org).  While many 1.x extensions will continue to work with htmx 2, you
+* All extensions have been removed from the core htmx distribution and are distributed separately.  While many 1.x 
+  extensions will continue to work with htmx 2, you
   must upgrade the SSE extension to the 2.x version, and it is recommended that you upgrade all of them to the 2.x
   versions.
 * If you are still using the legacy `hx-ws` and `hx-sse` attributes, please upgrade to the extension versions 

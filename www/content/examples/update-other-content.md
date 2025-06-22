@@ -7,7 +7,7 @@ A question that often comes up when people are first working with htmx is:
 
 > "I need to update other content on the screen.  How do I do this?" 
 
-There are multiple ways to do so, and in this example will walk you through some of them.
+There are multiple ways to do so, and in this example we will walk you through some of them.
 
 We'll use the following basic UI to discuss this concept: a simple table of contacts, and a form below it
 to add new contacts to the table using [hx-post](@/attributes/hx-post.md).
@@ -42,7 +42,7 @@ to add new contacts to the table using [hx-post](@/attributes/hx-post.md).
 The problem here is that when you submit a new contact in the form, you want the contact table above to refresh and
 include the contact that was just added by the form.
 
-What solutions to we have?
+What solutions do we have?
 
 ## Solution 1: Expand the Target {#expand}
 
@@ -120,20 +120,21 @@ Using this approach, the HTML doesn't need to change from the original setup at 
 Instead of modifying something on the front end, in your response to the `POST` to `/contacts` you would include some additional content:
 
 ```html
-<tr hx-swap-oob="beforeend:#contacts-table">
+<tbody hx-swap-oob="beforeend:#contacts-table">
+  <tr>
     <td>Joe Smith</td>
     <td>joe@smith.com</td>
-</tr>
-<form hx-post="/contacts">
-  <label>
-    Name
-        <input name="name" type="text">  
-  </label>
-  <label>
-    Email
-        <input name="email" type="email">  
-  </label>
-</form>
+  </tr>
+</tbody>
+
+<label>
+  Name
+      <input name="name" type="text">
+</label>
+<label>
+  Email
+      <input name="email" type="email">
+</label>
 ```
 
 This content uses the [hx-swap-oob](@/attributes/hx-swap-oob.md) attribute to append itself to the `#contacts-table`, updating
